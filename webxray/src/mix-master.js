@@ -42,7 +42,6 @@
     var focused = options.focusedOverlay;
     var locale = options.locale || jQuery.locale;
     var commandManager = options.commandManager;
-    var l10n = locale.scope('mix-master');
     var dialogPageMods = null;
     var transitionEffects;
     
@@ -60,7 +59,7 @@
     function runCommand(name, options) {
       focused.unfocus();
       var command = commandManager.run(name, options);
-      updateStatus(locale.get('command-manager:executed'), command);
+      updateStatus(Localized.get('executed'), command);
     }
     
     var self = {
@@ -68,11 +67,11 @@
         if (commandManager.canUndo()) {
           focused.unfocus();
           transitionEffects.enableDuring(function() {
-            updateStatus(locale.get('command-manager:undid'),
+            updateStatus(Localized.get('undid'),
                          commandManager.undo());
           });
         } else {
-          var msg = locale.get('command-manager:cannot-undo-html');
+          var msg = Localized.get('cannot-undo-html');
           $(hud.overlay).html(msg);
         }
       },
@@ -80,11 +79,11 @@
         if (commandManager.canRedo()) {
           focused.unfocus();
           transitionEffects.enableDuring(function() {
-            updateStatus(locale.get('command-manager:redid'),
+            updateStatus(Localized.get('redid'),
                          commandManager.redo());
           });
         } else {
-          var msg = locale.get('command-manager:cannot-redo-html');
+          var msg = Localized.get('cannot-redo-html');
           $(hud.overlay).html(msg);
         }
       },
@@ -99,7 +98,7 @@
         var elementToDelete = focused.getPrimaryElement();
         if (elementToDelete) {
           if ($(elementToDelete).is('html, body')) {
-            var msg = l10n('too-big-to-change');
+            var msg = Localized.get('too-big-to-change');
             jQuery.transparentMessage($('<div></div>').text(msg));
             return;
           }
@@ -110,7 +109,7 @@
           var placeholder = $('<span class="webxray-deleted"></span>');
           transitionEffects.enableDuring(function() {
             runCommand("ReplaceWithCmd", {
-              name: l10n('deletion'),
+              name: Localized.get('deletion'),
               elementToReplace: elementToDelete,
               newContent: placeholder
             });
@@ -129,7 +128,7 @@
       replaceElement: function(elementToReplace, html) {
         var newContent = self.htmlToJQuery(html);
         runCommand("ReplaceWithCmd", {
-          name: l10n('replacement'),
+          name: Localized.get('replacement'),
           elementToReplace: elementToReplace,
           newContent: newContent
         });
@@ -154,7 +153,7 @@
         var focusedHTML = $(focusedElement).outerHtml();
 
         if ($(focusedElement).is('html, body')) {
-          var msg = l10n("too-big-to-change");
+          var msg = Localized.get("too-big-to-change");
           jQuery.transparentMessage($('<div></div>').text(msg));
           return;
         }
@@ -162,7 +161,7 @@
         if (focusedHTML.length == 0 ||
             focusedHTML.length > MAX_HTML_LENGTH) {
           var tagName = focusedElement.nodeName.toLowerCase();
-          var msg = l10n("too-big-to-remix-html").replace("${tagName}",
+          var msg = Localized.get("too-big-to-remix-html").replace("${tagName}",
                                                           tagName);
           jQuery.transparentMessage($(msg));
           return;

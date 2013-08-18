@@ -44,7 +44,7 @@ app.locals({
 // Setup locales with i18n
 app.use( i18n.abide({
   supported_languages: [
-    'en-US'
+    'en-US', 'th-TH'
   ],
   default_lang: "en-US",
   translation_type: "key-value-json",
@@ -162,6 +162,20 @@ app.param("remix", function(req, res, next, id) {
 app.get("/remix/:remix", function(req, res) {
   res.write(res.result.rawData);
   res.end();
+});
+
+// Localized Strings
+app.get( "/strings/:lang?", function( req, res ) {
+      res.jsonp( i18n.getStrings( req.params.lang || req.lang || "en-US" ) );
+});
+
+app.get( '/src/localized.js', function( req, res ) {
+  res.sendfile( path.resolve( __dirname, "lib/overrides/localized.js" ) );
+});
+
+// override some path
+app.get( "/easy-remix-dialog/index.html", function( req, res ) {
+      res.render( "/easy-remix-dialog/index.html" );
 });
 
 // login API connections

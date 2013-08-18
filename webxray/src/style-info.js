@@ -186,10 +186,10 @@
     row.data("propertyWidget", self);
     row.mouseover(function() {
       var docKey = "css-property-docs:" + name;
-      if (locale.has(docKey)) {
+      if (Localized.has(docKey)) {
         var moreInfo = $('<span class="webxray-more-info"></span>')
-          .text(locale.get("style-info:more-info"));
-        $(hud.overlay).html(locale.get(docKey))
+          .text(Localized.get("more-info"));
+        $(hud.overlay).html(Localized.get(docKey))
           .append(moreInfo)
           .find("a").css({textDecoration: "none"});
       }
@@ -309,7 +309,6 @@
       var hud = options.hud;
       var body = options.body || document.body;
       var isVisible = false;
-      var l10n = locale.scope("style-info");
       var modalOverlay = null;
       
       var overlay = $('<div class="webxray-base webxray-style-info"></div>');
@@ -329,8 +328,8 @@
           var info = $(primary).getStyleInfo(propertyNames, locale, hud);
           var instructions = $('<div class="webxray-instructions"></div>');
           var close = $('<div class="webxray-close-button"></div>');
-          instructions.html(l10n("tap-space-html"));
-          close.text(locale.get("dialog-common:ok"));
+          instructions.html(Localized.get("tap-space-html"));
+          close.text(Localized.get("dialog-common:ok"));
           overlay.append(info).append(instructions).append(close);
           overlay.show();
         } else {
@@ -382,7 +381,7 @@
             modalOverlay = ModalOverlay(overlay, primary, input);
             modalOverlay.on('change-style', function(style) {
               commandManager.run("ChangeAttributeCmd", {
-                name: l10n("style-change"),
+                name: Localized.get("style-change"),
                 attribute: "style",
                 value: style,
                 element: primary

@@ -3,7 +3,8 @@
   "indexFile": "/index.html",
   "compiledFile": "/webxray.js",
   "compiledFileParts": [
-    "src/intro.js"
+    "src/localized.js"
+  , "src/intro.js"
   , "src/json2.js"
   , "src/json.js"
   , "jquery/src/core.js"

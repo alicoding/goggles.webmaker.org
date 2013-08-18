@@ -7,12 +7,11 @@
     locale = locale || jQuery.locale;
     platform = platform || navigator.platform;
     
-    var descriptions = locale.scope('command-descriptions');
     var localizedKeys = [];
     keys.forEach(function(info) {
       var localizedInfo = {key: null, desc: null};
       localizedInfo.key = jQuery.nameForKey(info.key, locale, platform);
-      localizedInfo.desc = descriptions(info.cmd);
+      localizedInfo.desc = Localized.get(info.cmd);
       localizedKeys.push(localizedInfo);
     });
     return localizedKeys;

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ lang }}" dir="{{ lang_dir }}">
   <head>
     <meta charset="utf-8">
     <meta name="persona-email" content="{{ email }}">
@@ -68,54 +68,54 @@
       <div class="banner">
         <div class="header">
           <div>
-            <img class="logo" src="img/goggles.png" alt="X-Ray Goggles Logo">
+            <img class="logo" src="img/goggles.png" alt="{{ gettext("X-Ray Goggles Logo") }}">
           </div>
           <div>
-            <h1>X-Ray Goggles</h1>
-            <h2>Remix and share webpages instantly</h2>
+            <h1>{{ gettext("X-Ray Goggles") }}</h1>
+            <h2>{{ gettext("Remix and share webpages instantly") }}</h2>
           </div>
         </div>
-        <div class="bookmarklet"><a href="" id="bookmarklet-link" class="ui-btn"><span>X-Ray Goggles</span></a></div>
+        <div class="bookmarklet"><a href="" id="bookmarklet-link" class="ui-btn"><span>{{ gettext("X-Ray Goggles") }}</span></a></div>
       </div>
       <div class="ui-bg-column">
         <div class="ui-row">
           <div class="g-4">
-            <h1>Try it out</h1>
+            <h1>{{ gettext("Try it out") }}</h1>
             <ol>
               <li>
-                <p>Copy this URL to your clipboard.<br>
+                <p>{{ gettext("Copy this URL to your clipboard.") }}<br>
                   <input type="text" autofocus value="{{ host }}/img/goggles-remixed.png">
                 </p>
               </li>
               <li>
-                <p>Activate X-Ray Goggles by clicking the yellow button above.
+                <p>{{ gettext("Activate X-Ray Goggles by clicking the yellow button above.") }}
               </li>
               <li>
-                <p>Click on the image below, then edit the HTML source code so the image points to the URL you just copied.</p>
-                <p><img class="example" src="img/goggles.png" alt="X-Ray Goggles Logo"></p>
+                <p>{{ gettext("Click on the image below") }}</p>
+                <p><img class="example" src="img/goggles.png" alt="{{ gettext("X-Ray Goggles Logo") }}"></p>
               </li>
               <li>
-                <p>Mess around with the rest of the page!</p>
+                <p>{{ gettext("Mess around with the rest of the page!") }}</p>
               </li>
             </ol>
 
-            <h1>Share your remix</h1>
-            <p>When you're ready to share your remixed page, click the Publish button or press <kbd>P</kbd> on your keyboard.</p>
+            <h1>{{ gettext("Share your remix") }}</h1>
+            <p>{{ gettext("When you're ready to share your remixed page") }}</p>
 
-            <h1>Help</h1>
-            <p>With X-Ray Goggles activated, press <kbd>H</kbd> for help.</p>
+            <h1>{{ gettext("Help") }}</h1>
+            <p>{{ gettext("With X-Ray Goggles activated") }}</p>
           </div>
 
           <div class="g-4">
-            <h1>Remix any webpage!</h1>
-            <p>You can take X-Ray Goggles with you anywhere on the web! Just install it in two easy steps.</p>
+            <h1>{{ gettext("Remix any webpage!") }}</h1>
+            <p>{{ gettext("You can take X-Ray Goggles with you anywhere") }}</p>
             <ol id="install">
               <li>
-                <p>Make sure your browser's bookmarks bar is enabled.</p>
+                <p>{{ gettext("Make sure your browser's bookmarks bar is enabled.") }}</p>
                 <p class="screenshot step1" data-step="1"><img src="img/instructions/firefox1.png"></p>
               </li>
               <li>
-                <p>Deactivate X-Ray Goggles, then drag the button above into your bookmarks bar.</p>
+                <p>{{ gettext("Deactivate X-Ray Goggles") }}</p>
                 <p class="screenshot step2" data-step="2"><img src="img/instructions/firefox2.png"></p>
               </li>
             </ol>

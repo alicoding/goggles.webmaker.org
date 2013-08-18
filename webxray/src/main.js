@@ -127,7 +127,7 @@
       window.webxrayUI = ui;
       loadPlugins(function() {
         var welcomeMsg = $("<div></div>");
-        welcomeMsg.html(jQuery.locale.get("hud-overlay:default-html"));
+        welcomeMsg.html(Localized.get("default-html"));
         jQuery.transparentMessage(welcomeMsg);
 
         ui.start();

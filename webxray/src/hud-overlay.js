@@ -10,13 +10,11 @@
 
     var hudContainer = $('<div class="webxray-base webxray-hud-box"></div>');
     var hud = $('<div class="webxray-base webxray-hud"></div>');
-    var locale = options.locale || jQuery.locale;
-    var l10n = locale.scope("hud-overlay");
 
     hudContainer.append(hud);
     
     function showDefaultContent() {
-      hud.html(options.defaultContent || l10n("default-html"));
+      hud.html(options.defaultContent || Localized.get("default-html"));
     }
 
     showDefaultContent();
@@ -58,22 +56,22 @@
           var shortDescKey = "short-element-descriptions:" +
                              element.nodeName.toLowerCase();
 
-          if (locale.has(shortDescKey))
+          if (Localized.has(shortDescKey))
             span.emit(code(info.tagName),
-                      " (" + locale.get(shortDescKey) + ") ",
-                      l10n("element"));
+                      " (" + Localized.get(shortDescKey) + ") ",
+                      Localized.get("element"));
           else
-            span.emit(code(info.tagName), " ", l10n("element"));
+            span.emit(code(info.tagName), " ", Localized.get("element"));
           if (info.id)
-            span.emit(" ", l10n("with"), " ", l10n("id"), " ",
+            span.emit(" ", Localized.get("with"), " ", Localized.get("id"), " ",
                       code(info.id));
           if (info.className)
-            span.emit(" " + (info.id ? l10n("and") : l10n("with")),
-                      " ", l10n("class"), " ",
+            span.emit(" " + (info.id ? Localized.get("and") : Localized.get("with")),
+                      " ", Localized.get("class"), " ",
                       code(info.className));
           if (info.url) {
             span.emit((info.id || info.className) ? "," : "",
-                      " ", l10n("pointing-at"), " ",
+                      " ", Localized.get("pointing-at"), " ",
                       $('<span class="webxray-url"></span>').text(info.url));
           }
           return span;
@@ -81,10 +79,10 @@
 
         if (focused.element) {
           var span = $("<span></span>");
-          span.emit(l10n("focused-intro"), " ",
+          span.emit(Localized.get("focused-intro"), " ",
                     elementDesc(focused.element), ".");
           if (focused.ancestor)
-            span.emit(" ", l10n("ancestor-intro"), " ",
+            span.emit(" ", Localized.get("ancestor-intro"), " ",
                       elementDesc(focused.ancestor), ".");
           hud.empty().append(span);
         } else
