@@ -6,6 +6,11 @@
       return url;
     return baseURI + url;
   }
+  
+  var webxrayScript = document.querySelector(".webxray"), 
+    baseURI = webxrayScript.dataset.baseuri,
+    lang = webxrayScript.dataset.lang,
+    url = baseURI + "/strings/" + lang;
 
   jQuery.webxraySettings = {
     extend: jQuery.extend,
@@ -18,12 +23,11 @@
       }
       return makeAbsoluteURL(this.baseURI, this[name]);
     },
-    language: "en",  // effect english-only for now
     baseURI: "",
     cssURL: "webxray.css",
     preferencesURL: "preferences.html",
-    easyRemixDialogURL: "easy-remix-dialog/index.html",
-    uprootDialogURL: "uproot-dialog.html",
+    easyRemixDialogURL: "{{hostname}}/" + lang + "/easy-remix-dialog/index.html",
+    uprootDialogURL: "{{hostname}}/" + lang + "/uproot-dialog.html",
     bugReportDialogURL: "bug-report-dialog.html",
     hackpubInjectionURL: "published-hack/injector.js",
     pluginURLs: [],
