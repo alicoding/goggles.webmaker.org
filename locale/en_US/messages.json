@@ -301,7 +301,7 @@
     "Save changes": "Save changes",
     "Basic": "Basic",
     "Advanced": "Advanced",
-    "Source Code": "Source Code",
+    "HTML Source Code": "HTML Source Code",
     "Preview": "Preview",
     "a.charset": "This attribute defines the character encoding of the linked resource.",
     "a.coords": "For use with object shapes, this attribute uses a comma-separated list of numbers to define the coordinates of the object on the page.",
