@@ -186,7 +186,7 @@
     row.data("propertyWidget", self);
     row.mouseover(function() {
       var docKey = "css-property-docs:" + name;
-      if (Localized.has(docKey)) {
+      if (Localized.get(docKey)) {
         var moreInfo = $('<span class="webxray-more-info"></span>')
           .text(Localized.get("more-info"));
         $(hud.overlay).html(Localized.get(docKey))

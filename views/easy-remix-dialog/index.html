@@ -310,7 +310,7 @@
           elementName = "h1";
 
         var keyName = "html-element-docs:" + elementName;
-        if (Localized.has(keyName))
+        if (Localized.get(keyName))
           return Localized.get(keyName);
         return "";
       }
@@ -325,11 +325,11 @@
         var globalAttrKeyName = "html-attribute-docs:" + attr.name;
         var elementSpecificKeyName = attr.elementName + "." + attr.name;
 
-        if (Localized.has(elementSpecificKeyName)) {
+        if (Localized.get(elementSpecificKeyName)) {
           attr.docs = Localized.get(elementSpecificKeyName);
           attr.mdnLink = BASE_MDN_HTML_ELEM_URL + attr.elementName + "#attr-" +
                          attr.name;
-        } else if (Localized.has(globalAttrKeyName)) {
+        } else if (Localized.get(globalAttrKeyName)) {
           attr.docs = Localized.get(globalAttrKeyName);
           attr.mdnLink = BASE_MDN_HTML_URL + "Global_attributes#attr-" +
                          attr.name;

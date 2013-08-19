@@ -56,7 +56,7 @@
           var shortDescKey = "short-element-descriptions:" +
                              element.nodeName.toLowerCase();
 
-          if (Localized.has(shortDescKey))
+          if (Localized.get(shortDescKey))
             span.emit(code(info.tagName),
                       " (" + Localized.get(shortDescKey) + ") ",
                       Localized.get("element"));
