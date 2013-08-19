@@ -1,7 +1,7 @@
 (function( originalWindow, undefined ) {
 
 var window = originalWindow;
-window.Localized = Localized;
+
 // Use the correct document accordingly with window argument (sandbox)
 var document = window.document;
 
