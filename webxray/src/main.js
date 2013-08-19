@@ -112,7 +112,7 @@
   
   jQuery.extend({webxrayBuildMetadata: buildMetadata});
 
-  $(window).ready(function() {
+  Localized.ready(function() {
     if (typeof(console) != 'undefined') {
       console.log("Initializing Web X-Ray Goggles built on " +
                   buildMetadata.date + " (commit " +

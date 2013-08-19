@@ -3,3 +3,4 @@ goggles.sqlite
 thimble.sqlite
 .env
 *.pyc
+bower_components

@@ -1,0 +1,6 @@
+{
+  "name": "goggles.webmaker.org",
+  "dependencies": {
+    "node-webmaker-i18n": "git://github.com/humphd/node-webmaker-i18n.git#eba3bdaee337a3934540222c15538d450f86c505"
+  }
+}
