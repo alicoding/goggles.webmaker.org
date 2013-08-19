@@ -1,6 +1,6 @@
 {
   "name": "goggles.webmaker.org",
   "dependencies": {
-    "node-webmaker-i18n": "git://github.com/humphd/node-webmaker-i18n.git#eba3bdaee337a3934540222c15538d450f86c505"
+    "node-webmaker-i18n": "https://github.com/mozilla/node-webmaker-i18n/archive/v0.0.5.tar.gz"
   }
 }

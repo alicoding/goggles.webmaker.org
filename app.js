@@ -165,7 +165,7 @@ app.get("/remix/:remix", function(req, res) {
 
 // Localized Strings
 app.get( "/strings/:lang?", function( req, res ) {
-      res.jsonp( i18n.getStrings( req.params.lang || req.lang || "en-US" ) );
+  res.jsonp( i18n.getStrings( req.params.lang || req.lang || "en-US" ) );
 });
 
 app.get( '/src/localized.js', function( req, res ) {
@@ -174,7 +174,7 @@ app.get( '/src/localized.js', function( req, res ) {
 
 // override some path
 app.get( "/easy-remix-dialog/index.html", function( req, res ) {
-      res.render( "/easy-remix-dialog/index.html" );
+  res.render( "/easy-remix-dialog/index.html" );
 });
 
 // login API connections
