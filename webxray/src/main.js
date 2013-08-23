@@ -112,13 +112,8 @@
   
   jQuery.extend({webxrayBuildMetadata: buildMetadata});
 
-  var webxrayScript = document.querySelector(".webxray"), 
-    baseURI = webxrayScript.dataset.baseuri,
-    lang = webxrayScript.dataset.lang,
-    url = baseURI + "/strings/" + lang;
-
-  Localized.ready({url: url}, function() {
-    if (typeof(console) != 'undefined') {
+  Localized.ready({url: xray.url}, function() {
+    if (window.console && console.log) {
       console.log("Initializing Web X-Ray Goggles built on " +
                   buildMetadata.date + " (commit " +
                   buildMetadata.commit + ").");

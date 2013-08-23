@@ -6,12 +6,7 @@
       return url;
     return baseURI + url;
   }
-  
-  var webxrayScript = document.querySelector(".webxray"), 
-    baseURI = webxrayScript.dataset.baseuri,
-    lang = webxrayScript.dataset.lang,
-    url = baseURI + "/strings/" + lang;
-
+ 
   jQuery.webxraySettings = {
     extend: jQuery.extend,
     url: function(name) {
@@ -26,8 +21,8 @@
     baseURI: "",
     cssURL: "webxray.css",
     preferencesURL: "preferences.html",
-    easyRemixDialogURL: "{{hostname}}/" + lang + "/easy-remix-dialog/index.html",
-    uprootDialogURL: "{{hostname}}/" + lang + "/uproot-dialog.html",
+    easyRemixDialogURL: "{{hostname}}/" + xray.lang + "/easy-remix-dialog/index.html",
+    uprootDialogURL: "{{hostname}}/" + xray.lang + "/uproot-dialog.html",
     bugReportDialogURL: "bug-report-dialog.html",
     hackpubInjectionURL: "published-hack/injector.js",
     pluginURLs: [],

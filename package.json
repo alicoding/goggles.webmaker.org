@@ -4,7 +4,7 @@
   "description": "A node version of the X-ray Goggles",
   "private": true,
   "scripts": {
-    "postinstall": "./node_modules/.bin/bower install"
+    "postinstall": "bower install"
   },
   "dependencies": {
     "bower": "1.2.3",
