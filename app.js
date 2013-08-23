@@ -44,7 +44,7 @@ app.locals({
 
 app.use(i18n.middleware({
   supported_languages: [
-    'en-US', 'th-TH'
+    'en-US'
   ],
   default_lang: 'en-US',
   translation_directory: path.join( __dirname, 'locale' )
