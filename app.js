@@ -110,7 +110,8 @@ app.use(express.csrf());
 // we somehow can't declare them in the res.render on each `get()`
 app.use(function (req, res, next) {
   app.locals({
-    csrf: req.csrfToken()
+    csrf: req.csrfToken(),
+    email: req.session.email
   });
   next();
 });
