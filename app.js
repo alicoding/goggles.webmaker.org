@@ -70,11 +70,9 @@ app.use(express.cookieSession({
 }));
 app.use(function(err, req, res, next) {
   // universal error handler
-  console.error(err.msg);
+  console.error(err.message);
   throw err;
 });
-// enable CSRF
-app.use(express.csrf());
 
 // Save an x-ray goggles mix to the DB.
 // FIXME: this happens before CRSF is applied, and will
@@ -105,6 +103,18 @@ app.post('/publish',
   }
 );
 
+// enable CSRF
+app.use(express.csrf());
+// Adding the csrf to the locals so that we can use it in few other places
+// without declaring it multiple times, and also to use the new `csrfToken()`
+// we somehow can't declare them in the res.render on each `get()`
+app.use(function (req, res, next) {
+  app.locals({
+    csrf: req.csrfToken()
+  });
+  next();
+});
+
 // DEVOPS - Healthcheck
 app.get('/healthcheck', function(req, res) {
   res.json({
@@ -116,7 +126,6 @@ app.get('/healthcheck', function(req, res) {
 app.get("/", function(req, res) {
   res.render("index.html", {
     audience: env.get("audience"),
-    csrf: req.csrfToken() || "",
     email: req.session.email || "",
     host: env.get("hostname"),
     login: env.get("login")
@@ -127,7 +136,6 @@ app.get("/", function(req, res) {
 app.get("/uproot-dialog.html", function(req, res) {
   res.render("uproot-dialog.html", {
     audience: env.get("audience"),
-    csrf: req.csrfToken() || "",
     email: req.session.email || "",
     login: env.get("login")
   });
@@ -137,8 +145,6 @@ app.get("/uproot-dialog.html", function(req, res) {
 app.get("/publication.js", function(req, res) {
   res.render("publication.js", {
     audience: env.get("audience"),
-    csrf: req.csrfToken() || "",
-    email: req.session.email || "",
     login: env.get("login")
   });
 });
